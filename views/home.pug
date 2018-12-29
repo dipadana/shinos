@@ -1,0 +1,63 @@
+extends layout
+
+block nav
+  a.btn.btn-light(href="/admin/menus/add") Add foods
+  form.form-inline(action="").float-right
+    input#search(type="search", name="search", placeholder="Search for foods here...").form-control
+    button(type="submit").btn.btn-light.ml-2 Search
+
+block content
+  .container.table-responsive
+    table.table.table-borderless.table-striped
+      thead.thead-light
+        tr
+          th(scope="col") #
+          th(scope="col") Name
+          th(scope="col") Type
+          th(scope="col") Price
+      each menu, i in menus
+        tbody
+          tr
+            th(scope="row") #{i + 1}
+            td 
+              a(href="/admin/menus/detail/" + menu._id) #{menu.food_name}
+            td #{menu.food_type}
+            td IDR #{menu.food_price}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

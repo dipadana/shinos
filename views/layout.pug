@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(http-equiv="X-UA-Compatible", content="ie=edge")
+    title SHINO'S RESTAURANT ADMIN SYSTEM
+    link(rel="stylesheet", href="/styles/bootstrap.min.css")
+  body
+    nav.navbar.navbar-expand-lg.navbar-light.bg-light
+      .container
+        span.navbar-brand SHINO's RESTAURANT ADMIN SYSTEM
+    block alert
+    .container.mt-4.mb-2
+      .row.mb-2
+        .col
+          h3 #{title}
+      .row
+        .col
+          block nav
+    block content
+
+    script(src="/scripts/jquery-3.3.1.min.js")
+    script(src="/scripts/jquery.mask.min.js")
+    script(src="/scripts/bootstrap.min.js")
+    script(src="/scripts/main.js")

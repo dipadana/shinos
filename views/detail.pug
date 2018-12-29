@@ -1,0 +1,23 @@
+extends layout
+
+block nav 
+  a.btn.btn-secondary(href="/").mb-3 Back
+
+block content
+  .container
+    .row
+      .col-6
+        h3 #{food_details.food_name}
+        p.text-muted.h5 #{food_details.food_type}
+      .col-6
+        h2.text-right IDR #{food_details.food_price}
+  .container.my-3
+    .card
+      .card-header <strong>Food description</strong>
+      .card-body
+        p #{food_details.food_description}
+  .container
+    .row
+      .col
+        a.btn.btn-danger(href="", data-id=food_details._id).mr-2#delete-btn Delete food
+        a.btn.btn-info(href="/admin/menus/edit/" + food_details._id) Edit food

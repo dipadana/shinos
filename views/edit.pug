@@ -1,0 +1,31 @@
+extends layout
+
+block nav
+  a.btn.btn-danger(href="/admin/menus") Cancel
+
+block content
+  .container
+    form(action="/admin/menus/edit/" + food._id, method="POST")
+      .form-group
+        label(for="food_name") Food name
+        input#food_name(type="text", name="food_name", value=food.food_name).form-control
+        small.form-text.text-muted Example: Spagetti Lasagna, etc.
+      .input-group.mb-3
+        .input-group-prepend
+          label(for="food_type").input-group-text Food type
+        select#food_type(name="food_type").custom-select
+          - const types = ["Appertizer", "Soup", "Main course", "Dessert", "Drink"]
+          each foodtype in types
+            if food.food_type === foodtype
+              option(value=food.food_type selected) #{foodtype}
+            else
+              option(value=foodtype) #{foodtype}
+      .form-group
+        label(for="food_description") Food description
+        textarea#food_description(name="food_description", cols="30", rows="5").form-control #{food.food_description}
+      .input-group.mb-3
+        .input-group-prepend
+          label(for="food_price").input-group-text Price
+          label(for="rp").input-group-text IDR
+        input#food_price(type="text", name="food_price", value=food.food_price).form-control
+      button(type="submit").btn.btn-primary.mb-4 Submit
